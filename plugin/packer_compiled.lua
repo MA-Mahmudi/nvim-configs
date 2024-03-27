@@ -150,6 +150,11 @@ _G.packer_plugins = {
     path = "/home/maam/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
+  vim = {
+    loaded = true,
+    path = "/home/maam/.local/share/nvim/site/pack/packer/start/vim",
+    url = "https://github.com/dracula/vim"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/maam/.local/share/nvim/site/pack/packer/start/vim-fugitive",

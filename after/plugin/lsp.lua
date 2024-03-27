@@ -13,6 +13,18 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+    if client and client.server_capabilities.documentHighlightProvider then
+        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+            buffer = bufnr,
+            callback = vim.lsp.buf.document_highlight,
+        })
+        vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+            buffer = bufnr,
+            callback = vim.lsp.buf.clear_references,
+        })
+    end
+
 end)
 
 -- to learn how to use mason.nvim with lsp-zero

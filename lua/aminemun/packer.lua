@@ -51,4 +51,6 @@ return require('packer').startup(function(use)
 	  "neovim/nvim-lspconfig",
   }
 
+  use {'dracula/vim', { run = 'dracula' }}
+
 end)
